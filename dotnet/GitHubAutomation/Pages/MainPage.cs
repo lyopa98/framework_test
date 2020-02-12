@@ -51,7 +51,7 @@ namespace GitHubAutomation.Pages
 
         // Ввод неверного email при регистрации
         [FindsBy(How = How.XPath, Using = accountButtonField)]
-        public IWebElement AccountButton { get; set; }
+        internal IWebElement AccountButton { get; set; }
 
         [FindsBy(How = How.XPath, Using = registrationButtonOnForm)]
         public IWebElement RegistrationButton { get; set; }

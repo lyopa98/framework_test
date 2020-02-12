@@ -31,176 +31,176 @@ namespace Framework.Tests
           
         }
 
-        //[Test]
-        //public void DiscountSubscriptionTest()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
-        //        string ErrorEmail = "Спасибо";
-        //        MainPage mainPage = new MainPage(Driver);
+        [Test]
+        public void DiscountSubscriptionTest()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                Driver.Navigate().GoToUrl("https://21vek.by/");
+                string ErrorEmail = "Спасибо";
+                MainPage mainPage = new MainPage(Driver);
 
-        //        IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-        //        js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+                IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+                js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
 
-        //        var subscribeForm = mainPage.InputSubscribeEmail(UserCreator.WithAllProperties());
-        //        subscribeForm.ClickSubscribeButton();
-        //        Trace.WriteLine(subscribeForm.SubscribeMessage.Text);
-        //        Assert.IsTrue(subscribeForm.SubscribeMessage.Text.Contains(ErrorEmail));
+                var subscribeForm = mainPage.InputSubscribeEmail(UserCreator.WithAllProperties());
+                subscribeForm.ClickSubscribeButton();
+                Trace.WriteLine(subscribeForm.SubscribeMessage.Text);
+                Assert.IsTrue(subscribeForm.SubscribeMessage.Text.Contains(ErrorEmail));
 
-        //    });
-        //}
+            });
+        }
 
-        //[Test]
-        //public void CheckSpecialProduct()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
-        //        string SpacialPageString = "Скидки, суперцены";
-        //        MainPage mainPage = new MainPage(Driver);
+        [Test]
+        public void CheckSpecialProduct()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                Driver.Navigate().GoToUrl("https://21vek.by/");
+                string SpacialPageString = "Скидки, суперцены";
+                MainPage mainPage = new MainPage(Driver);
 
-        //        SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
-                
-
-        //        Assert.AreEqual(SpacialPageString, specialPage.SpecialHeader.Text);
-
-        //    });
-        //}
+                SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
 
 
-        //[Test]
-        //public void AddProductToCart()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        string AddMessageText = "В корзине";
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
-        //        MainPage mainPage = new MainPage(Driver);
-        //        SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
-        //        ProductPage productPage = specialPage.ClickOnFirstProduct()
-        //                                             .ClickAddToCartButton();
+                Assert.AreEqual(SpacialPageString, specialPage.SpecialHeader.Text);
 
-        //        Assert.AreEqual(AddMessageText, productPage.ButtonMessage.Text);
+            });
+        }
 
-        //    });
-        //}
 
-        //[Test]
-        //public void AuthorizationUser()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        string AuthMessageText = "Моё";
+        [Test]
+        public void AddProductToCart()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                string AddMessageText = "В корзине";
+                Driver.Navigate().GoToUrl("https://21vek.by/");
+                MainPage mainPage = new MainPage(Driver);
+                SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
+                ProductPage productPage = specialPage.ClickOnFirstProduct()
+                                                     .ClickAddToCartButton();
 
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
+                Assert.AreEqual(AddMessageText, productPage.ButtonMessage.Text);
 
-        //        MainPage mainPage = new MainPage(Driver);
+            });
+        }
 
-        //        var authForm = mainPage.ClickOnAccountField();
-        //        authForm.InputAuthorizatePassAndEmail(UserCreator.AuthProperties())
-        //                .ClickAuthorizationButton();
-        //        string value = authForm.ConfirmAuthorizationSpan.Text;
+        [Test]
+        public void AuthorizationUser()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                string AuthMessageText = "Моё";
 
-        //        Assert.AreEqual(AuthMessageText, value);
+                Driver.Navigate().GoToUrl("https://21vek.by/");
 
-        //    });
-        //}
+                MainPage mainPage = new MainPage(Driver);
 
-        //[Test]
-        //public void AddReview()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
+                var authForm = mainPage.ClickOnAccountField();
+                authForm.InputAuthorizatePassAndEmail(UserCreator.AuthProperties())
+                        .ClickAuthorizationButton();
+                string value = authForm.ConfirmAuthorizationSpan.Text;
 
-        //        string goodAddedReviewMessage = "Спасибо за ваш отзыв! Он будет опубликован в ближайшее время после проверки модератором.";
+                Assert.AreEqual(AuthMessageText, value);
 
-        //        MainPage mainPage = new MainPage(Driver);
-        //        var authForm = mainPage.ClickOnAccountField();
-        //        authForm.InputAuthorizatePassAndEmail(UserCreator.AuthProperties())
-        //                .ClickAuthorizationButton();
+            });
+        }
 
-        //        SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
-        //        ProductPage productPage = specialPage.ClickOnFirstProduct();
-        //        productPage.ClickProductReviewTab()
-        //                   .ClickProductReviewShowFormButton()
-        //                   .InputReviewToForm(UserCreator.WithAllProperties(), "Тест системы автоматизации тестирования")
-        //                   .ClickAddReviewButton();
-        //        string value = productPage.AddedReviewMessage.Text;
+        [Test]
+        public void AddReview()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                Driver.Navigate().GoToUrl("https://21vek.by/");
 
-        //        Assert.AreEqual(goodAddedReviewMessage, value);
-        //    });
-        //}
+                string goodAddedReviewMessage = "Спасибо за ваш отзыв! Он будет опубликован в ближайшее время после проверки модератором.";
 
-        //[Test]
-        //public void SearchProductWithIncorrectSymbols()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        string goodSearhResult = "МЫШЬ";
+                MainPage mainPage = new MainPage(Driver);
+                var authForm = mainPage.ClickOnAccountField();
+                authForm.InputAuthorizatePassAndEmail(UserCreator.AuthProperties())
+                        .ClickAuthorizationButton();
 
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
-        //        MainPage mainPage = new MainPage(Driver);
-        //        mainPage.SearchProductByName("!мышь(№");
-        //        bool goodResult = mainPage.FirstSearchedProductName.Text.ToUpper().Contains(goodSearhResult);
-               
-        //        Assert.IsTrue(goodResult);
+                SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
+                ProductPage productPage = specialPage.ClickOnFirstProduct();
+                productPage.ClickProductReviewTab()
+                           .ClickProductReviewShowFormButton()
+                           .InputReviewToForm(UserCreator.WithAllProperties(), "Тест системы автоматизации тестирования")
+                           .ClickAddReviewButton();
+                string value = productPage.AddedReviewMessage.Text;
 
-        //    });
-        //}
+                Assert.AreEqual(goodAddedReviewMessage, value);
+            });
+        }
 
-        //[Test]
-        //public void DeleteCartProduct()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
-        //        string goodDeleteResult = "Ваша корзина пуста";
-        //        MainPage mainPage = new MainPage(Driver);
-        //        SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
-        //        ProductPage productPage = specialPage.ClickOnFirstProduct()
-        //                                             .ClickAddToCartButton();
+        [Test]
+        public void SearchProductWithIncorrectSymbols()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                string goodSearhResult = "МЫШЬ";
 
-        //        CartPage cartPage = productPage.ClickCartButton().ClickDeleteProductButton();
-        //        Driver.Navigate().GoToUrl("https://21vek.by/order/");
-        //        string goodResult = cartPage.ResultDataCount.GetAttribute("data-count");
+                Driver.Navigate().GoToUrl("https://21vek.by/");
+                MainPage mainPage = new MainPage(Driver);
+                mainPage.SearchProductByName("!мышь(№");
+                bool goodResult = mainPage.FirstSearchedProductName.Text.ToUpper().Contains(goodSearhResult);
 
-        //        Assert.AreEqual("0", goodResult);
+                Assert.IsTrue(goodResult);
 
-        //    });
-        //}
+            });
+        }
 
-        //[Test]
-        //public void ClickRedirectVkIconFooter()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
+        [Test]
+        public void DeleteCartProduct()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                Driver.Navigate().GoToUrl("https://21vek.by/");
+                string goodDeleteResult = "Ваша корзина пуста";
+                MainPage mainPage = new MainPage(Driver);
+                SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
+                ProductPage productPage = specialPage.ClickOnFirstProduct()
+                                                     .ClickAddToCartButton();
 
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
-        //        IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
-        //        js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
-        //        string redirectUrl = new MainPage(Driver).ClickVkFooterIcon();
-        //        Assert.AreEqual("https://www.21vek.by/", redirectUrl);
+                CartPage cartPage = productPage.ClickCartButton().ClickDeleteProductButton();
+                Driver.Navigate().GoToUrl("https://21vek.by/order/");
+                string goodResult = cartPage.ResultDataCount.GetAttribute("data-count");
 
-        //    });
-        //}
+                Assert.AreEqual("0", goodResult);
 
-        //[Test]
-        //public void AddProductToFavorite()
-        //{
-        //    MakeScreenshotWhenFail(() =>
-        //    {
-        //        string AddMessageText = "Удалить из избранного";
-        //        Driver.Navigate().GoToUrl("https://21vek.by/");
-        //        MainPage mainPage = new MainPage(Driver);
-        //        SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
-        //        ProductPage productPage = specialPage.ClickOnFirstProduct()
-        //                                             .ClickAddToFavoriteButton();
+            });
+        }
 
-        //        Assert.AreEqual(AddMessageText, productPage.AddToFavoriteButton.Text);
+        [Test]
+        public void ClickRedirectVkIconFooter()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
 
-        //    });
-        //}
+                Driver.Navigate().GoToUrl("https://21vek.by/");
+                IJavaScriptExecutor js = (IJavaScriptExecutor)Driver;
+                js.ExecuteScript("window.scrollTo(0, document.body.scrollHeight);");
+                string redirectUrl = new MainPage(Driver).ClickVkFooterIcon();
+                Assert.AreEqual("https://www.21vek.by/", redirectUrl);
+
+            });
+        }
+
+        [Test]
+        public void AddProductToFavorite()
+        {
+            MakeScreenshotWhenFail(() =>
+            {
+                string AddMessageText = "Удалить из избранного";
+                Driver.Navigate().GoToUrl("https://21vek.by/");
+                MainPage mainPage = new MainPage(Driver);
+                SpecialPage specialPage = mainPage.ClickOnSpecialPageButton();
+                ProductPage productPage = specialPage.ClickOnFirstProduct()
+                                                     .ClickAddToFavoriteButton();
+
+                Assert.AreEqual(AddMessageText, productPage.AddToFavoriteButton.Text);
+
+            });
+        }
     }
 }
